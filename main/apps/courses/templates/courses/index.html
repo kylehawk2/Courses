@@ -5,12 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    {% load static %}
 </head>
 <body>
     <h1><u>Add a new Course:</u></h1>
     <form action="/create" method="POST">
+        {% csrf_token %}
         <label>Name:</label>
         <input type="text" name="name">
+        <label>Description:</label>
+        <input type="text" name="desc">
+        <input type="submit" value="Add">
     </form>
+    <hr>
+    <h1><u>Courses:</u></h1>
+    <table>
+        <tr>
+            <th class="1">Course Name</th>
+            <th class="2">Description</th>
+            <th class="3">Date Added</th>
+            <th class="4">Action</th>
+        </tr>
+    {% for course in courses %}
+        <tr>
+            <th class="1">{{ course.name }}</th>
+            <th class="2">{{ course.desc }}</th>
+            <th class="3">{{ course.created_at }}</th>
+            <th class="4"><a href="/destroy/{{ course.id }}">Remove</a></th>
+        </tr>
+    {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>

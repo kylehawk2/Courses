@@ -8,23 +8,9 @@
 </head>
 <body>
     <h3>Are you sure you want to delete this record?</h3>
-    <table>
-        <tr>
-            <th>Name:</th>
-            <th>{{course.name}}</th> 
-        </tr>
-        <tr>
-            <td>Description</td>
-            <td>{{course.desc}}</td>
-        </tr>
-        <tr>
-            <td><a href="/">Go Back</a></td>
-        </tr>
-        <tr>
-            <td>
-                <a href="/{{course.id}}/destroy">Delete</a>
-            </td>
-        </tr>
-    </table>
+    <p>Name: {{ course.name }}</p>
+    <p>Description: {{ course.desc }}</p>
+    <p><a href="/">Go Back</a></p>
+    <p><a href="/destroy/{{ course.id }}">Delete</a></p>   
 </body>
 </html>

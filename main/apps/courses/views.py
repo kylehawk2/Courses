@@ -10,3 +10,13 @@ def index(request):
 
 def destroy(request, id):
     return render(request, 'courses/destroy.html', {"courses": Course.objects.get(id=int(id))})
+
+def delete(request, id):
+    d = Course.objects.get(id=id)
+    d.delete()
+    return redirect('/')
+
+def add(request):
+    Course.objects.create(name=request.POST['name'], desc=request.POST['desc'])
+    print Course.objects.all()
+    return redirect('/')

@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1><u>Add a new Course:</u></h1>
-    <form action="/create" method="POST">
+    <form action="/add" method="POST">
         {% csrf_token %}
         <label>Name:</label>
         <input type="text" name="name">
@@ -34,7 +34,6 @@
             <th class="4"><a href="/destroy/{{ course.id }}">Remove</a></th>
         </tr>
     {% endfor %}
-        </tbody>
     </table>
 </body>
 </html>
